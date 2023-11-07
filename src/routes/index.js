@@ -3,7 +3,7 @@ const dietRouter = require('./diets');
 const recipeRouter = require('./recipes');
 const router = Router();
 
-router.use('/diets', dietRouter);
-router.use('/recipes', recipeRouter);
+router.use('/diet', dietRouter);
+router.use('/recipe', recipeRouter);
 
 module.exports = router;
