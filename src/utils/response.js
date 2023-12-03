@@ -1,5 +1,5 @@
 module.exports = (res, statusCode, data) => {
-  return res.status(statusCode).json({
+  res.status(statusCode).json({
     error: false,
     data,
   });
