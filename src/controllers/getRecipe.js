@@ -1,5 +1,8 @@
 const { response } = require('../utils');
+const store = require('../database');
 
 module.exports = async (req, res) => {
-  response(res, 200, { name: 'aqui vienen las recetas' });
+  const recipe = await store.Recipe.list();
+
+  response(res, 200, recipe);
 };
