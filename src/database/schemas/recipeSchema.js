@@ -21,16 +21,19 @@ const recipeSchema = new mongoose.Schema({
 
 recipeSchema.statics.list = async function () {
   const allRecipe = await this.find();
+  await mongoose.connection.close();
   return allRecipe;
 };
 
 recipeSchema.statics.get = async function (id) {
   const oneRecipe = await this.findById(id);
+  await mongoose.connection.close();
   return oneRecipe;
 };
 
 recipeSchema.statics.insert = async function (recipe) {
   const create = await this.create(recipe);
+  await mongoose.connection.close();
   return create;
 };
 

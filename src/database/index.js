@@ -7,4 +7,5 @@ const conn = mongoose.createConnection(URL_MONGO);
 module.exports = {
   Recipe: conn.model('Recipe', Schemas.recipeSchema),
   Diet: conn.model('Diet', Schemas.dietSchema),
+  conection: conn,
 };

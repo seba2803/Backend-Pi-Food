@@ -12,11 +12,6 @@ server.use('*', (req, res) => {
   res.status(404).send('Not found');
 });
 
-server.use((err, req, res, next) => {
-  res.status(err.statusCode || 500).send({
-    error: true,
-    message: err.message,
-  });
-});
+server.use(require('./utils/handlerError'));
 
 module.exports = server;
