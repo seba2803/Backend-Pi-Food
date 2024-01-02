@@ -14,8 +14,13 @@ describe('Manejador de rutas inexistentes', () => {
     expect(req.text).toBe('Not found');
   });
   describe('Rutas del servidor', () => {
-    it('Debe devolver un JSON al hacer una req a "/"', async () => {
-      const response = await request(server).get('/');
+    it('Debe devolver un JSON al hacer una req a "/recipe"', async () => {
+      const response = await request(server).get('/recipe');
+      expect(!Array.isArray(response)).toBeTruthy();
+      expect(response.error).toEqual(false);
+    });
+    it('Debe devolver un JSON al hacer una req a "/diet"', async () => {
+      const response = await request(server).get('/diet');
       expect(!Array.isArray(response)).toBeTruthy();
       expect(response.error).toEqual(false);
     });
